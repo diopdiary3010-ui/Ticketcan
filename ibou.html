@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetterie CAN Maroc 2025 - Officiel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CAN Maroc 2025 🇲🇦 - Billetterie</h1>
+            <nav>
+                <a href="#groupes">Groupes & Calendrier</a>
+                <a href="#stades">Stades & Villes</a>
+                <a href="#billets" class="cta-button">Acheter des Billets</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="hero" class="hero-section">
+            <h2>Vivez la Ferveur Africaine en Direct !</h2>
+            <p>Sélectionnez votre match, choisissez votre siège, et rejoignez-nous pour la Coupe d'Afrique des Nations 2025 au Maroc.</p>
+            <a href="#groupes" class="cta-button primary-cta">Découvrir les Matchs</a>
+            </section>
+
+        <section id="groupes">
+            <h3>⚽ Groupes de la Compétition</h3>
+            <div class="groupes-grid">
+                <div class="groupe-card">
+                    <h4>Groupe A</h4>
+                    <ul>
+                        <li>1. Maroc(Hôte)</li>
+                        <li>2. Mali 🇲🇱</li>
+                        <li>3. Zambie 🇿🇲	</li>
+                        <li>4. Comores 🇰🇲</li>
+                    </ul>
+                </div>
+                <div class="groupe-card">
+                    <h4>Groupe B</h4>
+                    <ul>
+                        <li>1.Égypte </li>
+                            <li>2.Afrique du Sud 🇿🇦</li>
+                            <li>3.	Angola 🇦🇴</li>
+                            <li>4.>Zimbabwe 🇿🇼</li>
+                    </li></ul>
+                </div>
+                <div class="groupe-card">
+                    <h4>Groupe C</h4>
+                    <ul>
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="groupe-card">
+                    <h4>Groupe D</h4>
+                    <ul><li>...</li></ul>
+                </div>
+            </div>
+            
+            <h3 class="margin-top">Calendrier des Phases</h3>
+            <div class="phases-grid">
+                <div class="phase-card">
+                    <h4>Phase de Groupes</h4>
+                    <p>Du 12 au 25 Janvier</p>
+                    <a href="#billets" class="cta-small">Voir les Billets</a>
+                </div>
+                <div class="phase-card">
+                    <h4>Huitièmes de Finale</h4>
+                    <p>Du 28 au 30 Janvier</p>
+                    <a href="#billets" class="cta-small">Voir les Billets</a>
+                </div>
+                <div class="phase-card">
+                    <h4>Quarts de Finale</h4>
+                    <p>2 et 3 Février</p>
+                    <a href="#billets" class="cta-small">Voir les Billets</a>
+                </div>
+                <div class="phase-card">
+                    <h4>Demi-Finales & Finale</h4>
+                    <p>Du 6 au 9 Février</p>
+                    <a href="#billets" class="cta-small">Voir les Billets</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="stades">
+            <h3>🏟️ Stades et Villes Hôtes</h3>
+            <div class="stades-grid">
+                <div class="stade-card">
+                    <h4>Stade Moulay Abdallah</h4>
+                    <p class="ville">Rabat 📍</p>
+                    <p>Capacité : 53 000</p>
+                    <a href="#billets" class="cta-small">Matchs à Rabat</a>
+                </div>
+                <div class="stade-card">
+                    <h4>Grand Stade de Marrakech</h4>
+                    <p class="ville">Marrakech 📍</p>
+                    <p>Capacité : 45 240</p>
+                    <a href="#billets" class="cta-small">Matchs à Marrakech</a>
+                </div>
+                <div class="stade-card">
+                    <h4>Stade Adrar</h4>
+                    <p class="ville">Agadir 📍</p>
+                    <p>Capacité : 45 480</p>
+                    <a href="#billets" class="cta-small">Matchs à Agadir</a>
+                </div>
+                <div class="stade-card">
+                    <h4>Complexe Sportif Mohammed V</h4>
+                    <p class="ville">Casablanca 📍</p>
+                    <p>Capacité : 67 000</p>
+                    <a href="#billets" class="cta-small">Matchs à Casablanca</a>
+                </div>
+            </div>
+            </section>
+
+        <section id="billets">
+            <h3>🎟️ Réserver vos Billets</h3>
+            <form class="booking-form">
+                <label for="match-select">Sélectionnez un Match :</label>
+                <select id="match-select" name="match">
+                    <option value="">-- Choisissez un match --</option>
+                    <option value="ma-a1">Maroc vs Équipe B - Rabat (Phase de Groupes)</option>
+                    <option value="qf-c1">Quart de Finale - Casablanca</option>
+                    <option value="final">FINALE - Casablanca</option>
+                </select>
+
+                <label for="quantity">Nombre de Billets :</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                
+                <label for="category">Catégorie :</label>
+                <select id="category" name="category">
+                    <option value="cat1">Catégorie 1 (Premium)</option>
+                    <option value="cat2">Catégorie 2</option>
+                    <option value="cat3">Catégorie 3 (Standard)</option>
+                </select>
+
+                <button type="submit" class="cta-button primary-cta">Passer à la Caisse (Simulation)</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CAN Maroc Billetterie. Un site de démonstration.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
