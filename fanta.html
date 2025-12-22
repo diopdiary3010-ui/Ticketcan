@@ -1,0 +1,498 @@
+/* Importation de police (Gardez ceci en haut) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* --- 1. Variables et Base Modernisée --- */
+:root {
+    /* Couleurs Maroc raffinées */
+    --primary-color: #c8102e; /* Un rouge plus profond et riche */
+    --primary-gradient: linear-gradient(135deg, #c8102e, #9b0c24);
+    --secondary-color: #006233; /* Un vert forêt noble */
+    --secondary-gradient: linear-gradient(135deg, #006233, #004d28);
+    
+    /* Neutres modernes */
+    --dark-color: #1a1b1f; /* Noir adouci */
+    --text-grey: #555b66;
+    --light-color: #ffffff;
+    --background-light: #f4f7f9; /* Gris très pâle bleuté */
+    --card-bg:#ffffff;
+    
+    /* Ombres douces (Soft Shadows) pour la profondeur */
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 25px rgba(0,0,0,0.08), 0 5px 10px rgba(0,0,0,0.05);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+    
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 12px;
+    --section-spacing: 100px;
+}
+
+/* Reset et Smooth Scroll */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--text-grey);
+    background-color: var(--background-light);
+    overflow-x: hidden; /* Évite les débordements horizontaux lors des animations */
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-color);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; position: relative; display: inline-block; }
+
+/* Petit soulignement décoratif sous les titres h3 */
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+section {
+    padding: var(--section-spacing) 0;
+}
+
+
+/* --- 2. Animations Clés (Keyframes) --- */
+
+/* Apparition en fondu vers le haut */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Zoom subtil pour le background du héros */
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+/* Appliquer l'animation d'entrée aux sections */
+main section {
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    /* Délai progressif pour que les sections n'apparaissent pas toutes en même temps au chargement */
+}
+#hero { animation-delay: 0.2s; }
+#groupes { animation-delay: 0.4s; }
+#stades { animation-delay: 0.6s; }
+#billets { animation-delay: 0.8s; }
+
+
+/* --- 3. Header et Navigation "Glassmorphism" --- */
+header {
+    background-color: rgba(26, 27, 31, 0.85); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(15px); /* Effet de flou d'arrière-plan (Glassmorphism) */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--light-color);
+    font-weight: 800;
+}
+
+nav a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Animation de soulignement au survol des liens */
+nav a:not(.cta-button)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:not(.cta-button):hover {
+    color: var(--light-color);
+}
+
+nav a:not(.cta-button):hover::after {
+    width: 100%;
+}
+
+
+/* --- 4. Boutons (CTA) Modernes et "Juicy" --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 50px; /* Boutons très arrondis */
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de brillance au survol */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Style Primaire (Rouge) */
+.cta-button.primary-cta, nav .cta-button {
+    background: var(--primary-gradient);
+    color: var(--light-color);
+    box-shadow: 0 10px 20px -10px rgba(200, 16, 46, 0.5); /* Ombre colorée */
+}
+
+.cta-button.primary-cta:hover, nav .cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px -12px rgba(200, 16, 46, 0.7);
+}
+
+/* Style Petit (Vert) */
+.cta-small {
+    background: var(--secondary-gradient);
+    color: var(--light-color);
+    padding: 8px 16px;
+    font-size: 0.85em;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px -5px rgba(0, 98, 51, 0.4);
+}
+
+.cta-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -8px rgba(0, 98, 51, 0.6);
+    background: var(--secondary-color);
+}
+
+
+/* --- 5. Section Hero Immersive --- */
+.hero-section {
+    position: relative;
+    /* Utilisation d'un pseudo-élément pour l'image d'arrière-plan afin de mieux gérer le contraste et l'animation */
+    background-color: var(--dark-color); 
+    color: var(--light-color);
+    text-align: center;
+    padding: 140px 20px;
+    border-radius: 0 0 30px 30px; /* Bordure arrondie uniquement en bas */
+    margin-top: 0; /* Collé au header */
+    overflow: hidden;
+}
+
+/* L'image d'arrière-plan animée */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /* Remplacement de l'image placeholder par une plus qualitative */
+    background: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    opacity: 0.4; /* Rend l'image plus sombre pour que le texte ressorte */
+    animation: subtleZoom 20s infinite alternate ease-in-out; /* Animation de zoom lent */
+}
+
+/* Un dégradé supplémentaire pour le contraste du texte */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(26,27,31,0.8) 0%, rgba(200, 16, 46, 0.3) 100%);
+    z-index: 1;
+}
+
+/* Le contenu du texte doit être au-dessus des couches d'arrière-plan */
+.hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--light-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    opacity: 0.9;
+}
+
+
+/* --- 6. Grilles Modernes --- */
+.groupes-grid, .phases-grid, .stades-grid {
+    display: grid;
+    gap: 30px;
+    margin-top: 50px;
+}
+.groupes-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.phases-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.stades-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+
+/* --- 7. Cartes (Cards) avec Élévation 3D --- */
+.groupe-card, .phase-card, .stade-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transition "rebondissante" */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Bordure subtile */
+    position: relative;
+    overflow: hidden;
+    /* Petit dégradé de fond très subtil */
+    background: linear-gradient(to bottom right, #ffffff, #f9fbfc);
+}
+
+/* Effet de survol puissant */
+.groupe-card:hover, .stade-card:hover, .phase-card:hover {
+    transform: translateY(-12px) scale(1.02); /* Monte plus haut et grossit légèrement */
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(200, 16, 46, 0.1); /* Légère teinte rouge sur la bordure */
+}
+
+/* Liseré coloré en haut des cartes au survol */
+.groupe-card::before, .stade-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    height: 0px;
+    background: var(--primary-gradient);
+    transition: height 0.3s ease;
+}
+.groupe-card:hover::before, .stade-card:hover::before {
+    height: 4px;
+}
+
+.stade-card:hover::before {
+     background: var(--secondary-gradient);
+}
+
+
+.groupe-card h4, .stade-card h4, .phase-card h4 {
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.groupe-card ul {
+    list-style: none;
+}
+
+.groupe-card li {
+    padding: 8px 0;
+    font-weight: 500;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: center;
+}
+/* Ajout d'une petite puce personnalisée */
+.groupe-card li::before {
+    content: '⚽';
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+
+.stade-card .ville {
+    color: var(--secondary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: rgba(0, 98, 51, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.phase-card {
+    text-align: center;
+    border: 2px solid transparent; /* Prépare la bordure pour le hover */
+    background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+}
+.phase-card:hover {
+    border-color: var(--primary-color);
+}
+.phase-card h4 { color: var(--primary-color); }
+.phase-card p { font-size: 1.1em; margin-bottom: 20px; color: var(--dark-color); }
+
+
+/* --- 8. Formulaire de Billetterie Moderne --- */
+#billets {
+    /* Fond de section différent pour le faire ressortir */
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: relative;
+    border-radius: 30px 30px 0 0;
+}
+/* Motif d'arrière-plan subtil pour la section billets */
+#billets::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(var(--text-grey) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+}
+
+#billets h3 {
+    color: var(--light-color);
+}
+
+.booking-form {
+    background: var(--card-bg);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.booking-form label {
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Champs de saisie modernes */
+.booking-form select, .booking-form input[type="number"] {
+    padding: 15px 20px;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 25px;
+    background-color: #fcfdfe;
+    transition: all 0.3s;
+    font-family: var(--font-family);
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    -webkit-appearance: none;
+}
+/* Ajout d'une icône de flèche personnalisée pour le select */
+.booking-form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c8102e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
+}
+
+/* Effet de focus sur les champs */
+.booking-form select:focus, .booking-form input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.1); /* Anneau de focus rouge */
+    outline: none;
+    background-color: var(--light-color);
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+
+/* --- 9. Footer --- */
+footer {
+    background-color:#111215;; /* Noir presque total */
+    color: rgba(197, 15, 15, 0.5);
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 0;
+}
+footer p {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+
+/* --- 10. Réactivité (Mobile) --- */
+@media (max-width: 768px) {
+    h2 { font-size: 2rem; }
+    .hero-section {
+        padding: 100px 20px 60px 20px;
+        border-radius: 0 0 20px 20px;
+    }
+    .hero-section h2 { font-size: 2.5rem; }
+    
+    header { padding: 15px 0; }
+    header .container { flex-direction: column; }
+    nav { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { margin: 5px; }
+    
+    .booking-form { padding: 30px 20px; }
+    
+    /* Sur mobile, on simplifie l'animation d'entrée */
+    main section { animation: none; opacity: 1; }
+}
+
+.margin-top { margin-top: 60px; }
